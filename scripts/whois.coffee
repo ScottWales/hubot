@@ -17,7 +17,7 @@ module.exports = (robot) ->
         name  = realname uid
         mail  = uid + '@nci.org.au'
         group = groups uid
-        res.reply name + ' <' + mail + '>' + '\n' + group
+        res.reply name + ' ' + mail + '\n' + group
 
     robot.respond /groups ([a-z]{3}[0-9]{3})/i, (res) ->
         uid = res.match[1]
