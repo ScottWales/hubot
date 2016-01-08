@@ -1,3 +1,6 @@
+# Description:
+#   Get information about NCI users
+
 {spawnSync} = require 'child_process'
 
 realname = (uid) ->
