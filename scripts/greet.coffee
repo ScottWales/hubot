@@ -52,4 +52,4 @@ module.exports = (robot) ->
     robot.hear /^(good ?)?night( hubot)?$/i, farewell
     robot.hear /^Tschüss( hubot)?$/i, tchuss
     robot.hear /^Auf Wiedersehen( hubot)?$/i, aufwiedersehen
-    robot.hear /^work from home$/i, approval
+    robot.hear /work from home/i, approval
