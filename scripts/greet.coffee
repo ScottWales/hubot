@@ -31,6 +31,22 @@ approval = (res) ->
     res.send 'Sweet as ' + res.envelope.user.name + '\nWe are totally a family friendly workplace'
 
 module.exports = (robot) ->
+    limit = false
+
+    robot.listenerMiddleware (context, next, done) ->
+        if limit
+            # Do nothing
+            done()
+        else
+            # Set the limit timer
+            limit = true
+            setTimeout () ->
+                limit = false
+            , 5*60*1000 # 5 min
+            # Write output
+            next ->
+                done()
+
     robot.hear /^hello( hubot)?$/i, greet
     robot.hear /^ciao( hubot)?$/i, salutare
     robot.hear /^salut( hubot)?$/i, bonjour
