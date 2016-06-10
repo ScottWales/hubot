@@ -29,6 +29,8 @@ maori = (res) ->
     res.send 'Tēnā koutou tēnā koutou tēnā tātou katoa. Haere mai haere mai haere mai ' + res.envelope.user.name
 approval = (res) ->
     res.send 'Sweet as ' + res.envelope.user.name + '\nWe are totally a family friendly workplace'
+parrot = (res) ->
+    res.send ':parrot: :parrot: :parrot:'
 
 module.exports = (robot) ->
     limit = false
@@ -69,3 +71,4 @@ module.exports = (robot) ->
     robot.hear /^Tschüss( hubot)?$/i, tchuss
     robot.hear /^Auf Wiedersehen( hubot)?$/i, aufwiedersehen
     robot.hear /work from home/i, approval
+    robot.hear /party on( hubot)?/i, parrot
