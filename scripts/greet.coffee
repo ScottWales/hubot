@@ -36,7 +36,11 @@ module.exports = (robot) ->
     limit = false
 
     robot.listenerMiddleware (context, next, done) ->
-        if limit
+        # Should we limit this message?
+        if not (context.listener.options?.limit? or false)
+            next ->
+                done()
+        else if limit
             # Do nothing
             done()
         else
@@ -49,26 +53,26 @@ module.exports = (robot) ->
             next ->
                 done()
 
-    robot.hear /^hello( hubot)?$/i, greet
-    robot.hear /^ciao( hubot)?$/i, salutare
-    robot.hear /^salut( hubot)?$/i, bonjour
-    robot.hear /^bonjour( hubot)?$/i, bonjour
-    robot.hear /^hi( hubot)?$/i, greet
-    robot.hear /^hallo( hubot)?$/i, hallo
-    robot.hear /^Guten morgen( hubot)?$/i, gutenmorgen
-    robot.hear /^(good )?morning( hubot)?$/i, greet
-    robot.hear /^Buongiorno( hubot)?$/i, salutare
-    robot.hear /^(good )?afternoon( hubot)?$/i, greet
-    robot.hear /^kia ora( hubot)?$/i, maori
-    robot.hear /^sup( hubot)?$/i, street
-    robot.hear /^bye( hubot)?$/i, farewell
-    robot.hear /^arrivederci( hubot)?$/i, arrivederci
-    robot.hear /^addio( hubot)?$/i, addio
-    robot.hear /^au revoir( hubot)?$/i, aurevoir
-    robot.hear /^bonsoir( hubot)?$/i, aurevoir
-    robot.hear /^bonne nuit( hubot)?$/i, aurevoir
-    robot.hear /^(good ?)?night( hubot)?$/i, farewell
-    robot.hear /^Tschüss( hubot)?$/i, tchuss
-    robot.hear /^Auf Wiedersehen( hubot)?$/i, aufwiedersehen
-    robot.hear /work from home/i, approval
-    robot.hear /party on( hubot)?/i, parrot
+    robot.hear /^hello( hubot)?$/i, limit: true,  greet
+    robot.hear /^ciao( hubot)?$/i, limit: true,  salutare
+    robot.hear /^salut( hubot)?$/i, limit: true,  bonjour
+    robot.hear /^bonjour( hubot)?$/i, limit: true,  bonjour
+    robot.hear /^hi( hubot)?$/i, limit: true,  greet
+    robot.hear /^hallo( hubot)?$/i, limit: true,  hallo
+    robot.hear /^Guten morgen( hubot)?$/i, limit: true,  gutenmorgen
+    robot.hear /^(good )?morning( hubot)?$/i, limit: true,  greet
+    robot.hear /^Buongiorno( hubot)?$/i, limit: true,  salutare
+    robot.hear /^(good )?afternoon( hubot)?$/i, limit: true,  greet
+    robot.hear /^kia ora( hubot)?$/i, limit: true,  maori
+    robot.hear /^sup( hubot)?$/i, limit: true,  street
+    robot.hear /^bye( hubot)?$/i, limit: true,  farewell
+    robot.hear /^arrivederci( hubot)?$/i, limit: true,  arrivederci
+    robot.hear /^addio( hubot)?$/i, limit: true,  addio
+    robot.hear /^au revoir( hubot)?$/i, limit: true,  aurevoir
+    robot.hear /^bonsoir( hubot)?$/i, limit: true,  aurevoir
+    robot.hear /^bonne nuit( hubot)?$/i, limit: true,  aurevoir
+    robot.hear /^(good ?)?night( hubot)?$/i, limit: true,  farewell
+    robot.hear /^Tschüss( hubot)?$/i, limit: true,  tchuss
+    robot.hear /^Auf Wiedersehen( hubot)?$/i, limit: true,  aufwiedersehen
+    robot.hear /work from home/i, limit: true,  approval
+    robot.hear /party on( hubot)?/i, limit: true,  parrot
