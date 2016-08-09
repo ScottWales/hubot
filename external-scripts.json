@@ -7,5 +7,7 @@
   "hubot-maps",
   "hubot-rules",
   "hubot-shipit",
-  "hubot-redis-brain"
+  "hubot-redis-brain",
+  "hubot-standup-alarm",
+  "hubot-daily-update"
 ]
