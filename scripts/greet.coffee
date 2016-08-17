@@ -31,6 +31,9 @@ approval = (res) ->
     res.send 'Sweet as ' + res.envelope.user.name + '\nWe are totally a family friendly workplace'
 parrot = (res) ->
     res.send ':parrot: :parrot: :parrot:'
+hal9000 = (res) ->
+    res.send "I'm sorry, " + res.envelope.user.name + ". I'm afraid I can't do that"
+
 
 module.exports = (robot) ->
     limit = false
@@ -77,3 +80,4 @@ module.exports = (robot) ->
     robot.hear /work from home/i, limit: true,  approval
     robot.hear /party on( hubot)?/i, limit: true,  parrot
     robot.hear /see you later/i, limit: true,  farewell
+    robot.hear /Open the pod bay doors hubot/i, limit: true,  hal9000
