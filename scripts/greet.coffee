@@ -80,4 +80,4 @@ module.exports = (robot) ->
     robot.hear /work from home/i, limit: true,  approval
     robot.hear /party on( hubot)?/i, limit: true,  parrot
     robot.hear /see you later/i, limit: true,  farewell
-    robot.hear /Open the pod bay doors hubot/i, limit: true,  hal9000
+    robot.hear /Open the pod bay doors hubot/i, limit: false,  hal9000
