@@ -33,7 +33,7 @@ parrot = (res) ->
     res.send ':parrot: :parrot: :parrot:'
 hal9000 = (res) ->
     res.send "I'm sorry, " + res.envelope.user.name + ". I'm afraid I can't do that"
-hal9000 = (res) ->
+hal90002 = (res) ->
     res.send "I think you know what the problem is just as well as I do."
 
 
