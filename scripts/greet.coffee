@@ -33,6 +33,8 @@ parrot = (res) ->
     res.send ':parrot: :parrot: :parrot:'
 hal9000 = (res) ->
     res.send "I'm sorry, " + res.envelope.user.name + ". I'm afraid I can't do that"
+hal9000 = (res) ->
+    res.send "I think you know what the problem is just as well as I do."
 
 
 module.exports = (robot) ->
@@ -80,4 +82,5 @@ module.exports = (robot) ->
     robot.hear /work from home/i, limit: true,  approval
     robot.hear /party on( hubot)?/i, limit: true,  parrot
     robot.hear /see you later/i, limit: true,  farewell
-    robot.hear /Open the pod bay doors hubot/i, limit: false,  hal9000
+    robot.hear /Open the pod bay doors hubot/i, hal9000
+    robot.hear /What\'s the problem?/i, hal90002
